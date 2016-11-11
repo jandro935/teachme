@@ -6,7 +6,6 @@ use Faker\Generator;
 
 class UserTableSeeder extends BaseSeeder
 {
-
     public function getModel()
     {
         return new User();
@@ -17,7 +16,7 @@ class UserTableSeeder extends BaseSeeder
         return [
             'name' => $faker->name,
             'email' => $faker->email,
-            'password' => bcrypt('secret')
+            'password' => bcrypt('secret'),
         ];
     }
 
@@ -32,8 +31,7 @@ class UserTableSeeder extends BaseSeeder
         $this->create([
             'name' => 'Alejandro Seisdedos',
             'email' => 'alejandro.seisdedos@gft.com',
-            'password' => bcrypt('admin')
+            'password' => bcrypt('admin'),
         ]);
     }
-
 }

@@ -10,7 +10,6 @@ use League\Flysystem\Exception;
 
 abstract class BaseSeeder extends Seeder
 {
-
     protected $total = 50;
     protected static $pool = array();
 
@@ -19,7 +18,6 @@ abstract class BaseSeeder extends Seeder
         $this->createMultiple($this->total);
     }
 
-
     protected function createMultiple($total, array $customValues = array())
     {
         for ($i = 1; $i <= $total; $i++) {
@@ -27,44 +25,39 @@ abstract class BaseSeeder extends Seeder
         }
     }
 
-
     abstract public function getModel();
     abstract public function getDummyData(Generator $faker, array $customValues = array());
-
 
     protected function create(array $customValues = array())
     {
         $values = $this->getDummyData(Faker::create(), $customValues);
         $values = array_merge($values, $customValues);
+
         return $this->addToPool($this->getModel()->create($values));
     }
 
-
     protected function createForm($seeder, array $customValues = array())
     {
-        $seeder = new $seeder;
+        $seeder = new $seeder();
+
         return $seeder->create($customValues);
     }
 
-
     protected function getRandom($model)
     {
-        if ( !isset(static::$pool[$model]) )
-        {
+        if (!isset(static::$pool[$model])) {
             throw new Exception('The $model collection does not exist');
         }
 
         return static::$pool[$model]->random();
     }
 
-
     private function addToPool($entity)
     {
         $reflection = new \ReflectionClass($entity);
         $class = $reflection->getShortName();
 
-        if ( !isset(static::$pool[$class]) )
-        {
+        if (!isset(static::$pool[$class])) {
             static::$pool[$class] = new Collection();
         }
 
@@ -72,5 +65,4 @@ abstract class BaseSeeder extends Seeder
 
         return $entity;
     }
-
 }
