@@ -20,7 +20,7 @@ abstract class BaseSeeder extends Seeder
 
     protected function createMultiple($total, array $customValues = array())
     {
-        for ($i = 1; $i <= $total; $i++) {
+        for ($i = 1; $i <= $total; ++$i) {
             $this->create($customValues);
         }
     }

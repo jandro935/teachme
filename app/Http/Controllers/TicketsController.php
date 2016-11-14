@@ -1,13 +1,10 @@
-<?php namespace TeachMe\Http\Controllers;
+<?php
 
-use TeachMe\Http\Requests;
-use TeachMe\Http\Controllers\Controller;
+namespace TeachMe\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-class TicketsController extends Controller {
-
-	public function latest()
+class TicketsController extends Controller
+{
+    public function latest()
     {
         return view('tickets/list');
     }

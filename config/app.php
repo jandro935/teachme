@@ -137,11 +137,11 @@ return [
         'Illuminate\View\ViewServiceProvider',
 
         /*
-         * Vendor Service Providers
+         * Vendor Service Providers...
          *
          * @link: https://laravelcollective.com/docs/5.0/html
          */
-        'Collective\Html\HtmlServiceProvider',
+        'TeachMe\Providers\HtmlServiceProvider',
 
         /*
          * Application Service Providers...
@@ -201,14 +201,14 @@ return [
         'View' => 'Illuminate\Support\Facades\View',
 
         /*
-         * Vendor Service Providers
+         * Vendor Service Providers...
          *
          * @link: https://laravelcollective.com/docs/5.0/html
          */
 
         'Form' => 'Collective\Html\FormFacade',
-        'Html' => 'Collective\Html\HtmlFacade'
+        'Html' => 'Collective\Html\HtmlFacade',
 
-    ],
+    ]
 
 ];
