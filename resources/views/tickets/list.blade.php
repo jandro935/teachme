@@ -346,12 +346,17 @@
                 <p class="date-t"><span class="glyphicon glyphicon-time"></span> 01/04/2015 00:21am</p>
                 </p>
             </div>
-                <ul class="pagination"><li class="disabled"><span>&laquo;</span></li> <li class="active"><span>1</span></li><li><a href="http://teachme.static/populares/?page=2">2</a></li> <li><a href="http://teachme.static/populares/?page=2" rel="next">&raquo;</a></li></ul>
+                <ul class="pagination">
+                    <li class="disabled"><span>&laquo;</span></li>
+                    <li class="active"><span>1</span></li>
+                    <li><a href="http://teachme.static/populares/?page=2">2</a></li>
+                    <li><a href="http://teachme.static/populares/?page=2" rel="next">&raquo;</a></li>
+                </ul>
             </div>
 
             <hr>
 
-            <p><a href="http://duilio.me" target="_blank">duilio.me</a></p>
+            <p><a href="" target="_blank">jandro935</a></p>
 
         </div>
     </div>
