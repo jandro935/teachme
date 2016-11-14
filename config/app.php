@@ -137,6 +137,13 @@ return [
         'Illuminate\View\ViewServiceProvider',
 
         /*
+         * Vendor Service Providers
+         *
+         * @link: https://laravelcollective.com/docs/5.0/html
+         */
+        'Collective\Html\HtmlServiceProvider',
+
+        /*
          * Application Service Providers...
          */
         'TeachMe\Providers\AppServiceProvider',
@@ -192,6 +199,15 @@ return [
         'URL' => 'Illuminate\Support\Facades\URL',
         'Validator' => 'Illuminate\Support\Facades\Validator',
         'View' => 'Illuminate\Support\Facades\View',
+
+        /*
+         * Vendor Service Providers
+         *
+         * @link: https://laravelcollective.com/docs/5.0/html
+         */
+
+        'Form' => 'Collective\Html\FormFacade',
+        'Html' => 'Collective\Html\HtmlFacade'
 
     ],
 
