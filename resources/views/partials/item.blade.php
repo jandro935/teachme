@@ -1,6 +1,6 @@
 <div data-id="{{ $ticket->id }}" class="well well-sm request">
     <h4 class="list-title">
-        <a href="{{ route('tickets.details', $ticket) }}">{{ $ticket->title }}</a>
+        <a href="{{ route('tickets.details', $ticket) }}">{!! Html::splitTitle($ticket->title) !!}</a>
 
         @include('partials/status', compact($ticket))
     </h4>

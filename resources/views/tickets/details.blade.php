@@ -6,8 +6,8 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <h2 class="title-show">
-                {{-- @TODO: Split title !! --}}
-                {{ $ticket->title }}
+                {{--{{ $ticket->title }}--}}
+                {!! Html::splitTitle($ticket->title) !!}
 
                 @include('partials/status', compact($ticket))
             </h2>
