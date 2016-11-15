@@ -40,11 +40,9 @@ class HtmlBuilder extends CollectiveHtmlBuilder
                 $html .= $name.' ';
             }
         }
-
         if (!empty($html)) {
-            return ' class='.trim($html).'';
+            return ' class="'.trim($html).'"';
         }
-
         return '';
     }
 }
