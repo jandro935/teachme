@@ -8,7 +8,8 @@
                 <div class="row">
                     <h1>
                         Solicitudes populares
-                        <a href="#" class="btn btn-primary">Nueva solicitud </a>
+                        <br>
+                        <a href="#" class="btn btn-primary">Nueva solicitud</a>
                     </h1>
 
                     <p class="label label-info news">Hay {{ $tickets->total() }} solicitudes recientes </p>
@@ -22,7 +23,7 @@
 
                 <hr>
 
-                <p><a href="" target="_blank">jandro935</a></p>
+                <p><a href="#" target="_blank">jandro935</a></p>
 
             </div>
         </div>

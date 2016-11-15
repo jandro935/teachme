@@ -43,6 +43,7 @@ class HtmlBuilder extends CollectiveHtmlBuilder
         if (!empty($html)) {
             return ' class="'.trim($html).'"';
         }
+
         return '';
     }
 }

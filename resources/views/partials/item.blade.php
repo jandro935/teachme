@@ -14,9 +14,8 @@
             {{--<span class="glyphicon glyphicon-thumbs-down"></span> No votar--}}
         {{--</a>--}}
 
-        {{--<a href="#">--}}
-            <span class="votes-count">12 votos</span> - <span class="comments-count">0 comentarios</span>
-        {{--</a>--}}
+        <span class="votes-count">{{ $ticket->voters()->count() }} votos</span>
+        - <span class="comments-count">{{ $ticket->comments()->count() }} comentarios</span>
 
         <p class="date-t"><span class="glyphicon glyphicon-time"></span> {{ $ticket->created_at->format('d/m/Y h:ia') }}</p>
     </p>

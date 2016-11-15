@@ -6,6 +6,8 @@ use TeachMe\Entities\TicketComment;
 
 class TicketCommentsTableSeeder extends BaseSeeder
 {
+    protected $total = 250;
+
     public function getModel()
     {
         return new TicketComment();
