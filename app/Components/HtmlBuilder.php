@@ -50,6 +50,7 @@ class HtmlBuilder extends CollectiveHtmlBuilder
     public function splitTitle($title)
     {
         $split_title = explode(substr($title, -1), $title);
+
         return $split_title[0];
     }
 }

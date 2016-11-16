@@ -2,7 +2,9 @@
 
 namespace TeachMe\Http\Controllers;
 
+use Illuminate\Http\Request;
 use TeachMe\Entities\Ticket;
+
 //use TeachMe\Entities\TicketComment;
 
 class TicketsController extends Controller
@@ -44,5 +46,15 @@ class TicketsController extends Controller
 
         // Ojo al pasar la variable $ticket a la función compact... va entre comillas
         return view('tickets/details', compact('ticket'));
+    }
+
+    public function create()
+    {
+        return view('tickets.create');
+    }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
     }
 }

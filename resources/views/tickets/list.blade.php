@@ -9,7 +9,7 @@
                     <h1>
                         {{ trans(Route::currentRouteName() . '_title') }}
                         <hr>
-                        <a href="#" class="btn btn-primary">Nueva solicitud</a>
+                        <a href="#" class="btn btn-primary">{{ trans('tickets.new_request') }}</a>
                     </h1>
 
                     <p class="label label-info news">
@@ -27,7 +27,6 @@
                 <hr>
 
                 <p><a href="#" target="_blank">jandro935</a></p>
-
             </div>
         </div>
     </div>

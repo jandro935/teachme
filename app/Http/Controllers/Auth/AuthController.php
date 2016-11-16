@@ -37,12 +37,12 @@ class AuthController extends Controller
     }
 
     /**
-     * @override redirectPath
+     * @override redirectPath()
+     *
      * @return string
      */
     public function redirectPath()
     {
         return '/';
     }
-
 }
