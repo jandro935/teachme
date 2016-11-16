@@ -7,7 +7,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="row">
                     <h1>
-                        {{ $title = trans(Route::currentRouteName() . '_title') }}
+                        {{ trans(Route::currentRouteName() . '_title') }}
                         <hr>
                         <a href="#" class="btn btn-primary">Nueva solicitud</a>
                     </h1>
