@@ -9,7 +9,7 @@
                     <h1>
                         {{ trans(Route::currentRouteName() . '_title') }}
                         <hr>
-                        <a href="#" class="btn btn-primary">{{ trans('tickets.new_request') }}</a>
+                        <a href="{{ route('tickets.create') }}" class="btn btn-primary">{{ trans('tickets.new_request') }}</a>
                     </h1>
 
                     <p class="label label-info news">

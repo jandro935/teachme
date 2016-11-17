@@ -6,12 +6,14 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <h2 class="title-show">
-                {!! Html::splitTitle($ticket->title) !!}
+                {{--{!! Html::splitTitle($ticket->title) !!}--}}
+                {!! $ticket->title !!}
 
                 @include('partials/status', compact($ticket))
             </h2>
             <p class="date-t">
-                <span class="glyphicon glyphicon-time"></span> {{ $ticket->created_at->format('d/m/Y h:ia') }}
+                <span class="glyphicon glyphicon-time"></span> {{ $ticket->created_at->format('d/m/Y h:ia') }} --
+                {{ $ticket->author->name }}
             </p>
 
             <h4 class="label label-info news">{{ count($ticket->voters) }} {{ trans('tickets.votes') }}</h4>

@@ -1,6 +1,7 @@
 <div data-id="{{ $ticket->id }}" class="well well-sm request">
     <h4 class="list-title">
-        <a href="{{ route('tickets.details', $ticket) }}">{!! Html::splitTitle($ticket->title) !!}</a>
+        {{--<a href="{{ route('tickets.details', $ticket) }}">{!! Html::splitTitle($ticket->title) !!}</a>--}}
+        <a href="{{ route('tickets.details', $ticket) }}">{!! $ticket->title !!}</a>
 
         @include('partials/status', compact($ticket))
     </h4>
@@ -13,6 +14,8 @@
         {{--<a href="#" class="btn btn-hight btn-unvote hide">--}}
             {{--<span class="glyphicon glyphicon-thumbs-down"></span> No votar--}}
         {{--</a>--}}
+
+        <span>Autor: {{ $ticket->author->name }} </span>
 
         <span class="votes-count">{{ $ticket->voters()->count() }} {{ trans('tickets.votes') }}</span>
         - <span class="comments-count">{{ $ticket->comments()->count() }} {{ trans('tickets.comments') }}</span>
