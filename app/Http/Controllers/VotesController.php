@@ -2,15 +2,24 @@
 
 namespace TeachMe\Http\Controllers;
 
+use Illuminate\Auth\Guard;
+use TeachMe\Entities\Ticket;
+
 class VotesController extends Controller
 {
-    public function submit($id)
+    public function submit($id, Guard $auth)
     {
-        dd('Votando por el ticket ' . $id);
+        $ticket = Ticket::findOrFail($id);
+        $auth->user()->vote($ticket);
+
+        return redirect()->back();
     }
 
-    public function destroy($id)
+    public function destroy($id, Guard $auth)
     {
-        dd('Quitando el voto al ticket ' . $id);
+        $ticket = Ticket::findOrFail($id);
+        $auth->user()->unvote($ticket);
+
+        return redirect()->back();
     }
 }
