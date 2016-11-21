@@ -11,6 +11,13 @@
 
                 @include('partials/status', compact($ticket))
             </h2>
+
+            @if (Session::has('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
+
             <p class="date-t">
                 <span class="glyphicon glyphicon-time"></span> {{ $ticket->created_at->format('d/m/Y h:ia') }} --
                 {{ $ticket->author->name }}
@@ -61,6 +68,11 @@
                 <div class="well well-sm">
                     <p><strong>{{ $comment->user->name }}</strong></p>
                     <p>{{ $comment->comment }}</p>
+                    @if ($comment->link)
+                        <p>
+                            <a href="{{ $comment->link }}" target="_blank" rel="nofollow">{{ $comment->link }}</a>
+                        </p>
+                    @endif
                     <p class="date-t">
                         <span class="glyphicon glyphicon-time"></span>
                         {{ $comment->created_at->format('d/m/Y h:ia') }}

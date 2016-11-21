@@ -112,7 +112,9 @@ return [
     */
 
     'attributes' => [
-        'title' => 'Título'
+        'title' => 'Título',
+        'link' => 'Enlace',
+        'comment' => 'Comentario'
     ],
 
 ];
