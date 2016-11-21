@@ -11,10 +11,9 @@ use TeachMe\Entities\Ticket;
 
 class TicketsController extends Controller
 {
-
     public function latest()
     {
-        $tickets = Ticket::orderBy('created_at', 'DESC')->paginate(10);
+        $tickets = Ticket::orderBy('created_at', 'DESC')->with('author')->paginate(10);
 
         return view('tickets/list', compact('tickets'));
     }
@@ -59,12 +58,12 @@ class TicketsController extends Controller
     public function store(Request $request, Guard $auth)
     {
         $this->validate($request, [
-            'title' => 'required|max:120'
+            'title' => 'required|max:120',
         ]);
 
         $ticket = $auth->user()->tickets()->create([
             'title' => $request->get('title'),
-            'status' => 'open'
+            'status' => 'open',
         ]);
 
         // This is another way to do it

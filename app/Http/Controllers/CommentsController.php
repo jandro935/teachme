@@ -13,7 +13,7 @@ class CommentsController extends Controller
     {
         $this->validate($request, [
             'comment' => 'required | max:255',
-            'link' => 'url'
+            'link' => 'url',
         ]);
 
         $comment = new TicketComment($request->only(['comment', 'link']));
@@ -23,6 +23,7 @@ class CommentsController extends Controller
         $ticket->comments()->save($comment);
 
         session()->flash('success', 'Tu comentario fue guardado exitosamente');
+
         return redirect()->back();
     }
 }

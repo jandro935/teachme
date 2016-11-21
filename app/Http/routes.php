@@ -68,6 +68,6 @@ Route::group(['middleware' => 'auth'], function () {
     // Comment
     Route::post('/comentar/{id}', [
         'as' => 'comments.submit',
-        'uses' => 'CommentsController@submit'
+        'uses' => 'CommentsController@submit',
     ]);
 });
