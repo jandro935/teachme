@@ -6,15 +6,24 @@ use Illuminate\Auth\Guard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use TeachMe\Entities\Ticket;
+use TeachMe\Repositories\TicketRepository;
 
 //use TeachMe\Entities\TicketComment;
 
 class TicketsController extends Controller
 {
+    private $ticketRepository;
+
+    public function __construct(TicketRepository $ticketRepository)
+    {
+        $this->ticketRepository = $ticketRepository;
+    }
+
     public function latest()
     {
-        $tickets = Ticket::orderBy('created_at', 'DESC')->with('author')->paginate(10);
+        $tickets = $this->ticketRepository->paginateLatest();
 
+        // Ojo al pasar la variable $ticket a la función compact... va entre comillas
         return view('tickets/list', compact('tickets'));
     }
 
@@ -25,28 +34,22 @@ class TicketsController extends Controller
 
     public function open()
     {
-        $tickets = Ticket::where('status', 'open')->paginate(10);
+        $tickets = $this->ticketRepository->paginateOpen();
 
         return view('tickets/list', compact('tickets'));
     }
 
     public function closed()
     {
-        $tickets = Ticket::where('status', 'closed')->paginate(10);
+        $tickets = $this->ticketRepository->paginateClosed();
 
         return view('tickets/list', compact('tickets'));
     }
 
     public function details($id)
     {
-        $ticket = Ticket::findOrFail($id);
+        $ticket = $this->ticketRepository->findOrFail($id);
 
-//        $comments = TicketComment::select('ticket_comments.*', 'users.name')
-//            ->join('users', 'ticket_comments.user_id', '=', 'users.id')
-//            ->where('ticket_id', $id)
-//            ->get();
-
-        // Ojo al pasar la variable $ticket a la función compact... va entre comillas
         return view('tickets/details', compact('ticket'));
     }
 
