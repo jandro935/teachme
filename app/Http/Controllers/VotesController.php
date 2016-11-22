@@ -2,7 +2,7 @@
 
 namespace TeachMe\Http\Controllers;
 
-use TeachMe\Http\Requests\Request;
+use Illuminate\Http\Request;
 use TeachMe\Repositories\TicketRepository;
 use TeachMe\Repositories\VoteRepository;
 

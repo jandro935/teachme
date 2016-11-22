@@ -14,6 +14,7 @@ class VoteRepository
         }
 
         $user->voted()->attach($ticket);
+
         return true;
     }
 
@@ -24,6 +25,7 @@ class VoteRepository
         }
 
         $user->voted()->detach($ticket);
+
         return true;
     }
 }
