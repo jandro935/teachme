@@ -41,4 +41,12 @@ class TicketRepository extends BaseRepository
             ->where('status', 'closed')
             ->paginate(10);
     }
+
+    public function openNew($user, $title)
+    {
+        return $user->tickets()->create([
+            'title' => $title,
+            'status' => 'open',
+        ]);
+    }
 }

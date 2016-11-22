@@ -2,23 +2,32 @@
 
 namespace TeachMe\Http\Controllers;
 
-use Illuminate\Auth\Guard;
-use TeachMe\Entities\Ticket;
+use TeachMe\Repositories\TicketRepository;
+use TeachMe\Repositories\VoteRepository;
 
 class VotesController extends Controller
 {
-    public function submit($id, Guard $auth)
+    private $ticketRepository;
+    private $voteRepository;
+
+    public function __construct(TicketRepository $ticketRepository, VoteRepository $voteRepository)
     {
-        $ticket = Ticket::findOrFail($id);
-        $auth->user()->vote($ticket);
+        $this->ticketRepository = $ticketRepository;
+        $this->voteRepository = $voteRepository;
+    }
+
+    public function submit($id)
+    {
+        $ticket = $this->ticketRepository->findOrFail($id);
+        $this->voteRepository->vote(currentUser(), $ticket);
 
         return redirect()->back();
     }
 
-    public function destroy($id, Guard $auth)
+    public function destroy($id)
     {
-        $ticket = Ticket::findOrFail($id);
-        $auth->user()->unvote($ticket);
+        $ticket = $this->ticketRepository->findOrFail($id);
+        $this->voteRepository->unvote(currentUser(), $ticket);
 
         return redirect()->back();
     }

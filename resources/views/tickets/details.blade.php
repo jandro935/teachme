@@ -33,7 +33,7 @@
 
             @if (Auth::check())
 
-                @if(!auth()->user()->hasVoted($ticket))
+                @if(!currentUser()->hasVoted($ticket))
                     {!! Form::open(['route' => ['votes.submit', $ticket->id], 'method' => 'POST']) !!}
                         <button type="submit" class="btn btn-primary">
                             <span class="glyphicon glyphicon-thumbs-up"></span> Votar

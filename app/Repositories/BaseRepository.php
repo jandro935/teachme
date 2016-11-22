@@ -4,7 +4,7 @@ namespace TeachMe\Repositories;
 
 use TeachMe\Entities\Entity;
 
-abstract class Baserepository
+abstract class BaseRepository
 {
     /**
      * @return Entity
