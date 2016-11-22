@@ -41,7 +41,7 @@
                     {!! Form::close() !!}
                 @else
                     {!! Form::open(['route' => ['votes.destroy', $ticket->id], 'method' => 'DELETE']) !!}
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-hight btn-unvote">
                             <span class="glyphicon glyphicon-thumbs-down"></span> Quitar voto
                         </button>
                     {!! Form::close() !!}

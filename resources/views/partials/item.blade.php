@@ -1,4 +1,4 @@
-<div data-id="{{ $ticket->id }}" class="well well-sm request">
+<div data-id="{{ $ticket->id }}" class="well well-sm ticket">
     <h4 class="list-title">
         {{--<a href="{{ route('tickets.details', $ticket) }}">{!! Html::splitTitle($ticket->title) !!}</a>--}}
         <a href="{{ route('tickets.details', $ticket) }}">{!! $ticket->title !!}</a>
@@ -7,13 +7,19 @@
     </h4>
 
     <p>
-        {{--<a href="#" class="btn btn-primary btn-vote" title="Votar por este tutorial">--}}
-            {{--<span class="glyphicon glyphicon-thumbs-up"></span> Votar--}}
-        {{--</a>--}}
+        @if(Auth::check())
 
-        {{--<a href="#" class="btn btn-hight btn-unvote hide">--}}
-            {{--<span class="glyphicon glyphicon-thumbs-down"></span> No votar--}}
-        {{--</a>--}}
+            <a href="#" {!! Html::classes(['btn btn-primary btn-vote', 'hidden' => currentUser()->hasVoted($ticket)]) !!}
+                title="Votar por este tutorial">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Votar
+            </a>
+
+            <a href="#" {!! Html::classes(['btn btn-hight btn-unvote', 'hidden' => !currentUser()->hasVoted($ticket)]) !!}
+                title="Quitar el voto a este tutorial">
+                <span class="glyphicon glyphicon-thumbs-down"></span> Quitar voto
+            </a>
+
+        @endif
 
         <span>Autor: {{ $ticket->author->name }} </span>
 
