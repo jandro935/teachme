@@ -9,7 +9,7 @@ class TicketsListComposer
 {
     public function compose($view)
     {
-        $view->title = trans(Route::currentRouteName() . '_title');
+        $view->title = trans(Route::currentRouteName().'_title');
         $view->text_total = Lang::choice(
             'tickets.total',
             $view->tickets->total(),

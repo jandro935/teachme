@@ -19,5 +19,5 @@ return array(
     'new_request' => 'Nueva solicitud',
     'correct_mistakes' => 'Por favor, corrije los errores',
     'votes' => 'votos',
-    'comments' => 'comentarios'
+    'comments' => 'comentarios',
 );

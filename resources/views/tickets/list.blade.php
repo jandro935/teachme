@@ -13,7 +13,6 @@
                     </h1>
 
                     <p class="label label-info news">
-                        {{--Hay {{ $tickets->total() }} {{ $title }}--}}
                         {{ $text_total }}
                     </p>
 
