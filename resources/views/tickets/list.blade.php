@@ -7,14 +7,14 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="row">
                     <h1>
-                        {{ trans(Route::currentRouteName() . '_title') }}
+                        {{ $title }}
                         <hr>
                         <a href="{{ route('tickets.create') }}" class="btn btn-primary">{{ trans('tickets.new_request') }}</a>
                     </h1>
 
                     <p class="label label-info news">
                         {{--Hay {{ $tickets->total() }} {{ $title }}--}}
-                        {{ Lang::choice(Route::currentRouteName() . '_total', $tickets->total()) }}
+                        {{ $text_total }}
                     </p>
 
                     @foreach($tickets as $ticket)
