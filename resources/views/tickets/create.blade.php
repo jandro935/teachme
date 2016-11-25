@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h2>Nueva solicitud</h2>
+                <h2>{{ trans('tickets.new_request') }}</h2>
 
                 @include('partials/errors')
 
@@ -19,7 +19,7 @@
                         ]) !!}
                 </div>
                 <p>
-                    <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+                    <button type="submit" class="btn btn-primary">{{ trans('tickets.send_request') }}</button>
                 </p>
                 {!! Form::close() !!}
             </div>

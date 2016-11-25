@@ -7,21 +7,23 @@
     </h4>
 
     <p>
+        <span>{{ trans('tickets.author') }}: {{ $ticket->author->name }} </span>
+    </p>
+
+    <p>
         @if(Auth::check())
 
             <a href="#" {!! Html::classes(['btn btn-primary btn-vote', 'hidden' => currentUser()->hasVoted($ticket)]) !!}
                 title="Votar por este tutorial">
-                <span class="glyphicon glyphicon-thumbs-up"></span> Votar
+                <span class="glyphicon glyphicon-thumbs-up"></span> {{ trans('tickets.vote') }}
             </a>
 
             <a href="#" {!! Html::classes(['btn btn-hight btn-unvote', 'hidden' => !currentUser()->hasVoted($ticket)]) !!}
                 title="Quitar el voto a este tutorial">
-                <span class="glyphicon glyphicon-thumbs-down"></span> Quitar voto
+                <span class="glyphicon glyphicon-thumbs-down"></span> {{ trans('tickets.remove_vote') }}
             </a>
 
         @endif
-
-        <span>Autor: {{ $ticket->author->name }} </span>
 
         <span class="votes-count">{{ $ticket->num_votes }} {{ trans('tickets.votes') }}</span>
         - <span class="comments-count">{{ $ticket->num_comments }} {{ trans('tickets.comments') }}</span>

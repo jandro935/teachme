@@ -36,37 +36,37 @@
                 @if(!currentUser()->hasVoted($ticket))
                     {!! Form::open(['route' => ['votes.submit', $ticket->id], 'method' => 'POST']) !!}
                         <button type="submit" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-thumbs-up"></span> Votar
+                            <span class="glyphicon glyphicon-thumbs-up"></span> {{ trans('tickets.vote') }}
                         </button>
                     {!! Form::close() !!}
                 @else
                     {!! Form::open(['route' => ['votes.destroy', $ticket->id], 'method' => 'DELETE']) !!}
                         <button type="submit" class="btn btn-hight btn-unvote">
-                            <span class="glyphicon glyphicon-thumbs-down"></span> Quitar voto
+                            <span class="glyphicon glyphicon-thumbs-down"></span> {{ trans('tickets.remove_vote') }}
                         </button>
                     {!! Form::close() !!}
                 @endif
 
             @endif
 
-            <h3>Nuevo comentario</h3>
+            <h3>{{ trans('tickets.new_comment') }}</h3>
 
             @include('partials/errors')
 
             {!! Form::open(['route' => ['comments.submit', $ticket->id], 'method' => 'POST']) !!}
                 <div class="form-group">
-                    <label for="comment">Comentarios:</label>
+                    <label for="comment">{{ trans('tickets.comment') }}:</label>
                     <textarea rows="4" class="form-control" name="comment" cols="50" id="comment">{{ old('comment') }}</textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="link">Enlace:</label>
+                    <label for="link">{{ trans('tickets.link') }}:</label>
                     <input class="form-control" name="link" type="text" id="link" value="{{ old('link') }}">
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar comentario</button>
+                <button type="submit" class="btn btn-primary">{{ trans('tickets.send_comment') }}</button>
             {!! Form::close() !!}
 
-            <h3>Comentarios ({{ count($ticket->comments) }})</h3>
+            <h3>{{ trans('tickets.comments') }} ({{ count($ticket->comments) }})</h3>
 
             @foreach($ticket->comments as $comment)
                 <div class="well well-sm">
